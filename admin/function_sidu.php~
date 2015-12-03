@@ -1,0 +1,99 @@
+
+<?php
+	
+	require_once ('query_sidu.php');
+	
+	// select
+	function request_select($conn,$index,$id) {
+		
+		$sql = select_query($index,$id);
+		
+		try {
+			
+			 $stmt = $conn->prepare($sql);
+			 $stmt->execute();
+			 // این تابع سطر های جدول پست را درون آرایه میریزد
+			 $result = arrays($stmt);
+			 return $result;
+			 
+		}// end try
+		
+		catch(PDOException $e) {
+			
+			echo "connection failed" . $e->getMessage();
+			
+		}// end catch
+		
+	}// end request_select()
+	
+	// insert
+	function request_insert($conn, $index, $insert) {
+		
+		$sql = insert_query($index,$insert);
+		
+		try {
+			
+			 $stmt = $conn->prepare($sql);
+			 $stmt->execute();
+			 return $stmt;
+			 
+		}// end try
+		
+		catch(PDOException $e) {
+			
+			echo "inserted failed" . $e->getMessage();
+			
+		}// end catch
+		
+	}// end request_insert()
+	
+	// delete
+	function request_delete($conn , $index , $id) {
+		
+		$sql = delete_query($index,$id);
+		
+		try {
+			
+			 $stmt = $conn->prepare($sql);
+			 $stmt->execute();
+			 return $stmt;
+			 
+			}// end try
+		
+		catch(PDOException $e) {
+			
+			 echo $sql . "<br>" . $e->getMessage();
+			
+		}// end catch
+		
+		
+	}// end request_delete()
+	
+	// update
+	function request_update($conn , $index , $update) {
+		
+		$sql = update_query($index,$update);
+		
+		try {
+			
+			 $stmt = $conn->prepare($sql);
+			 $stmt->execute();
+			 return $stmt;
+			 
+			}// end try
+		
+		catch(PDOException $e) {
+			
+			 echo $sql . "<br>" . $e->getMessage();
+			
+		}// end catch
+		
+	}// end request_update()
+		
+	function arrays($stmt) {
+		
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	
+	}// end arrays()
+	
+?>

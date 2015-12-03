@@ -1,0 +1,75 @@
+body {
+background-color:pink;
+}
+#header {
+border:2px solid blue;
+height:200px;
+width:800px;
+background-color:blue;
+position:absolute;
+top:10px;
+left:200px;
+}
+#sidebar {
+border:2px solid yellow;
+height:570px;
+width:200px;
+background-color:yellow;
+position:absolute;
+top:220px;
+left:800px;
+}
+#footer {
+border:2px solid black;
+height:100px;
+width:800px;
+background-color:black;
+position:absolute;
+top:800px;
+left:200px;
+}
+#viewpost {
+background-color: #008000;
+height: 575px;
+width: 600px;
+left: 200px;
+top: 220px;
+position: absolute;
+}
+#single {
+height: 575px;
+width: 600px;
+left: 200px;
+top: 220px;
+position: absolute;
+}
+#author {
+height: 575px;
+width: 600px;
+left: 200px;
+top: 220px;
+position: absolute;
+}
+#category {
+height: 575px;
+width: 600px;
+left: 200px;
+top: 220px;
+position: absolute;
+}
+.item-0 {
+position: absolute;
+top: 5px;
+left: 0px;
+border: 2px solid #000;
+width: 260px;
+height: 260px;
+}
+.item-1 {
+position: absolute;
+top: 5px;
+left: 337px;
+border: black solid 2px;
+width: 260px;
+height: 260px;
+}

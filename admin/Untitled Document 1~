@@ -1,0 +1,9 @@
+<?php
+
+require_once("connection.php");
+
+try{
+$conn->exec("select * from Posts");
+	echo"ok";
+}
+?>

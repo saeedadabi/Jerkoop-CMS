@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form method="get" action="">
+post_title :<input type="text" name="post_title"><br>
+post_name :<input type="text" name="post_name"><br>
+<input type="submit" name="publish" value="publish">
+</form>
+</body>
+</html>
+
+<?php
+	
+	require_once ('config.php');
+	require_once ('function_sidu.php');
+	
+	if (isset($_GET['publish'])) {
+		
+		if (!empty($_GET['post_name'])) {
+			
+			// اسم صفحه که به عنوان شاخص از آن استفاده می شود تا تابع تشخیص دهد باید چکاری انجام دهد
+			$index = "newpost";
+			// ورودی های کاربر را درون متغیر هایی قرار می دهیم تا قابل شناسایی باشند
+			$post_name = $_GET['post_name'];
+			$post_title = $_GET['post_title'];
+			//تعریف یک آرایه حاوی مقادیری که کاربر وارد میکند و باید درون ستون های جدول پست درج شود
+			$insert = array("post_name"=>"$post_name","post_title"=>"$post_title");
+			// از این تابع برای عملیات درج ورودی های کاربر درون جدول پست استفاده میشود
+			if(request_insert($conn, $index, $insert))  {
+				
+				echo "successfully";
+			}// end if
+			
+			else {
+				
+				echo "not successfully";
+			}//end else
+	
+		}//end empty()
+		
+		else {
+		
+			echo "please full inputs";
+		}
+	
+	}//end isset()
+	
+?>   

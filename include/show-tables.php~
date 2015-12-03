@@ -1,0 +1,25 @@
+<?php
+
+//echo substr("commentsposts",8);
+	function show_tables($conn) {
+
+		try {
+			
+			$stmt = $conn->prepare("show tables");
+			$stmt->execute();
+			while ($row = $stmt->fetch(PDO::FETCH_NUM))
+				$table = $table . $row[0];
+
+			return $table;
+
+		}// end try
+
+		catch(PDOException $e) {
+			
+			echo "failed" . $e->getMessage();
+		
+		}// end catch
+	
+	}// end show_tables()
+
+?>

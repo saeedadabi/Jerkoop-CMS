@@ -1,0 +1,14 @@
+div {
+position:absolute;
+top:70px;
+left:250px;
+border:2px solid black;
+border-radius:5px;
+height:200px;
+width:700px;
+}
+form {
+position:relative;
+top:100px;
+left:300px;
+}
